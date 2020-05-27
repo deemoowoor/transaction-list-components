@@ -109,7 +109,7 @@ const EnhancedTableToolbar = props => {
           </IconButton>
         </Tooltip>
       ) : (
-        <>
+        <React.Fragment>
           <FilterListIcon key={"icon"} title={filterTitle} />
           <FormControl className={classes.formControl}>
             <InputLabel id="filter-select-outlined-label">
@@ -132,7 +132,7 @@ const EnhancedTableToolbar = props => {
               ))}
             </Select>
           </FormControl>
-        </>
+        </React.Fragment>
       )}
 
     </Toolbar>

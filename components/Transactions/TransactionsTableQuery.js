@@ -5,7 +5,7 @@ import {
   Card,
   CardContent,
   CardHeader,
-  Typography,
+  Typography
 } from "@material-ui/core"
 
 import { Query } from "@apollo/react-components"
@@ -19,7 +19,7 @@ import Snackbar from "@material-ui/core/Snackbar"
 import HourglassEmptyOutlined from "@material-ui/icons/HourglassEmptyOutlined"
 import Error from "@material-ui/icons/Error"
 
-import EnhancedTable from "../EnhancedTable/EnhancedTable"
+import EnhancedTable from "../EnhancedTable/index"
 import EnhancedTableToolbar from "../EnhancedTable/EnhancedTableToolbar"
 
 import AddTransactionFormDialog from "../Dialogs/AddTransactionFormDialog"
