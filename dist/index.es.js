@@ -32,16 +32,6 @@ import Paper from '@material-ui/core/Paper';
 import Snackbar from '@material-ui/core/Snackbar';
 import HourglassEmptyOutlined from '@material-ui/icons/HourglassEmptyOutlined';
 import Error from '@material-ui/icons/Error';
-import { useStaticQuery, graphql } from 'gatsby';
-import AppBar from '@material-ui/core/AppBar';
-import Typography$1 from '@material-ui/core/Typography';
-import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import AssessmentIcon from '@material-ui/icons/Assessment';
-import BuildIcon from '@material-ui/icons/Build';
 
 function toVal(mix) {
 	var k, y, str='';
@@ -1413,106 +1403,5 @@ function TransactionsTableQuery(_ref2) {
   );
 }
 
-var _templateObject$1 = taggedTemplateLiteral(["\n    query {\n      site {\n        siteMetadata {\n          title\n        }\n      }\n    }\n  "], ["\n    query {\n      site {\n        siteMetadata {\n          title\n        }\n      }\n    }\n  "]);
-
-var styles$1 = {
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -18,
-    marginRight: 10
-  },
-  list: {
-    width: 250
-  }
-};
-
-function DenseAppBar(props) {
-  var data = useStaticQuery(graphql(_templateObject$1));
-
-  var classes = props.classes,
-      title = props.title;
-
-  var _React$useState = React.useState(false),
-      _React$useState2 = slicedToArray(_React$useState, 2),
-      menu = _React$useState2[0],
-      setMenu = _React$useState2[1];
-
-  var toggleMenu = function toggleMenu(open) {
-    return function (event) {
-      if (event.type === "keyDown" && (event.key === "Tab" || event.key === "Shift")) {
-        return;
-      }
-      setMenu(open);
-    };
-  };
-
-  var list = function list() {
-    return React.createElement(
-      "div",
-      {
-        className: clsx(classes.list),
-        role: "presentation",
-        onClick: toggleMenu(false),
-        onKeyDown: toggleMenu(false)
-      },
-      React.createElement(
-        List,
-        null,
-        React.createElement(
-          ListItem,
-          { button: true, component: "a", href: "/", key: "Customer's page" },
-          React.createElement(AssessmentIcon, null),
-          React.createElement(ListItemText, { primary: "Customer's page" })
-        ),
-        React.createElement(
-          ListItem,
-          { button: true, component: "a", href: "/backoffice", key: "Backoffice" },
-          React.createElement(BuildIcon, null),
-          React.createElement(ListItemText, { primary: "Backoffice" })
-        )
-      )
-    );
-  };
-
-  return React.createElement(
-    "div",
-    { className: classes.root },
-    React.createElement(
-      Drawer,
-      { open: menu, onClose: toggleMenu(false) },
-      list()
-    ),
-    React.createElement(
-      AppBar,
-      { position: "static" },
-      React.createElement(
-        Toolbar,
-        { variant: "dense" },
-        React.createElement(
-          IconButton,
-          {
-            className: classes.menuButton,
-            color: "inherit",
-            "aria-label": "Menu",
-            onClick: toggleMenu(true)
-          },
-          React.createElement(MenuIcon, null)
-        ),
-        React.createElement(
-          Typography$1,
-          { variant: "h6", color: "inherit" },
-          data.site.siteMetadata.title,
-          " : ",
-          title
-        )
-      )
-    )
-  );
-}
-
-var index = withStyles(styles$1)(DenseAppBar);
-
-export { AddTransactionFormDialog, EditTransactionFormDialog, EnhancedTable, EnhancedTableToolbar, index as NavBar, TransactionsTableQuery };
+export { AddTransactionFormDialog, EditTransactionFormDialog, EnhancedTable, EnhancedTableToolbar, TransactionsTableQuery };
 //# sourceMappingURL=index.es.js.map

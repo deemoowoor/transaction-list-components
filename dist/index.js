@@ -38,16 +38,6 @@ var Paper = _interopDefault(require('@material-ui/core/Paper'));
 var Snackbar = _interopDefault(require('@material-ui/core/Snackbar'));
 var HourglassEmptyOutlined = _interopDefault(require('@material-ui/icons/HourglassEmptyOutlined'));
 var Error = _interopDefault(require('@material-ui/icons/Error'));
-var gatsby = require('gatsby');
-var AppBar = _interopDefault(require('@material-ui/core/AppBar'));
-var Typography = _interopDefault(require('@material-ui/core/Typography'));
-var MenuIcon = _interopDefault(require('@material-ui/icons/Menu'));
-var Drawer = _interopDefault(require('@material-ui/core/Drawer'));
-var List = _interopDefault(require('@material-ui/core/List'));
-var ListItem = _interopDefault(require('@material-ui/core/ListItem'));
-var ListItemText = _interopDefault(require('@material-ui/core/ListItemText'));
-var AssessmentIcon = _interopDefault(require('@material-ui/icons/Assessment'));
-var BuildIcon = _interopDefault(require('@material-ui/icons/Build'));
 
 function toVal(mix) {
 	var k, y, str='';
@@ -1419,111 +1409,9 @@ function TransactionsTableQuery(_ref2) {
   );
 }
 
-var _templateObject$1 = taggedTemplateLiteral(["\n    query {\n      site {\n        siteMetadata {\n          title\n        }\n      }\n    }\n  "], ["\n    query {\n      site {\n        siteMetadata {\n          title\n        }\n      }\n    }\n  "]);
-
-var styles$2 = {
-  root: {
-    flexGrow: 1
-  },
-  menuButton: {
-    marginLeft: -18,
-    marginRight: 10
-  },
-  list: {
-    width: 250
-  }
-};
-
-function DenseAppBar(props) {
-  var data = gatsby.useStaticQuery(gatsby.graphql(_templateObject$1));
-
-  var classes = props.classes,
-      title = props.title;
-
-  var _React$useState = React.useState(false),
-      _React$useState2 = slicedToArray(_React$useState, 2),
-      menu = _React$useState2[0],
-      setMenu = _React$useState2[1];
-
-  var toggleMenu = function toggleMenu(open) {
-    return function (event) {
-      if (event.type === "keyDown" && (event.key === "Tab" || event.key === "Shift")) {
-        return;
-      }
-      setMenu(open);
-    };
-  };
-
-  var list = function list() {
-    return React.createElement(
-      "div",
-      {
-        className: clsx(classes.list),
-        role: "presentation",
-        onClick: toggleMenu(false),
-        onKeyDown: toggleMenu(false)
-      },
-      React.createElement(
-        List,
-        null,
-        React.createElement(
-          ListItem,
-          { button: true, component: "a", href: "/", key: "Customer's page" },
-          React.createElement(AssessmentIcon, null),
-          React.createElement(ListItemText, { primary: "Customer's page" })
-        ),
-        React.createElement(
-          ListItem,
-          { button: true, component: "a", href: "/backoffice", key: "Backoffice" },
-          React.createElement(BuildIcon, null),
-          React.createElement(ListItemText, { primary: "Backoffice" })
-        )
-      )
-    );
-  };
-
-  return React.createElement(
-    "div",
-    { className: classes.root },
-    React.createElement(
-      Drawer,
-      { open: menu, onClose: toggleMenu(false) },
-      list()
-    ),
-    React.createElement(
-      AppBar,
-      { position: "static" },
-      React.createElement(
-        Toolbar,
-        { variant: "dense" },
-        React.createElement(
-          IconButton,
-          {
-            className: classes.menuButton,
-            color: "inherit",
-            "aria-label": "Menu",
-            onClick: toggleMenu(true)
-          },
-          React.createElement(MenuIcon, null)
-        ),
-        React.createElement(
-          Typography,
-          { variant: "h6", color: "inherit" },
-          data.site.siteMetadata.title,
-          " : ",
-          title
-        )
-      )
-    )
-  );
-}
-
-var index = styles.withStyles(styles$2)(DenseAppBar);
-
 exports.AddTransactionFormDialog = AddTransactionFormDialog;
 exports.EditTransactionFormDialog = EditTransactionFormDialog;
 exports.EnhancedTable = EnhancedTable;
 exports.EnhancedTableToolbar = EnhancedTableToolbar;
-exports.NavBar = index;
 exports.TransactionsTableQuery = TransactionsTableQuery;
 //# sourceMappingURL=index.js.map
